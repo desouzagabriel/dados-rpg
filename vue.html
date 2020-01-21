@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ZappCard | Planos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <img src="icons/dice-shield.svg" alt="Logo" height="50">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse  justify-content-center" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#">Rolar Dados</a>
+                    <a class="nav-item nav-link" href="#">Contato</a>
+                    <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- DIV -->
+                <div class="col-lg-8 offset-lg-2 mt-5">
+                    <h2 class="text-center mb-5 bg-danger text-white p-3">
+                        <img src="icons/rule-book.svg" alt="Livro de Regras" height="80" width="80">
+                        ROLAGEM DE DADOS
+                    </h2>
+                    <div class="row">
+                        <div class="col-lg-4" v-for="dado in dados">
+                            <button class="btn btn-danger col-lg-4 offset-lg-4 mb-5" @click="rolagemD20(dado)">
+                                <img :src="dado.linkfoto" alt="Dados de RPG" height="50" width="50">
+                                <p>{{dado.nome}}</p>
+                                <p>{{dado.value}}</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- END DIV -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                dados: [
+                    { nome: 'D4', value: '-', linkfoto: 'icons/d4.svg' },
+                    { nome: 'D6', value: '-', linkfoto: 'icons/dice-six-faces-six.svg' },
+                    { nome: 'D8', value: '-', linkfoto: 'icons/dice-eight-faces-eight.svg' },
+                    { nome: 'D10', value: '-', linkfoto: 'icons/d10.svg' },
+                    { nome: 'D12', value: '-', linkfoto: 'icons/d12.svg' },
+                    { nome: 'D20', value: '-', linkfoto: 'icons/dice-twenty-faces-twenty.svg' },
+                ],
+            },
+            methods: {
+                // getting dado by reference to set his value with "valorAleatorio"
+                rolagemD20: function (dado) {
+                    switch (dado.nome) {
+                        case "D4":
+                            var valorAleatorio = Math.floor(Math.random() * 4 + 1);
+                            dado.value = valorAleatorio
+                            break;
+                        case "D6":
+                            var valorAleatorio = Math.floor(Math.random() * 6 + 1);
+                            dado.value = valorAleatorio
+                            break;
+                        case "D8":
+                            var valorAleatorio = Math.floor(Math.random() * 8 + 1);
+                            dado.value = valorAleatorio
+                            break;
+                        case "D10":
+                            var valorAleatorio = Math.floor(Math.random() * 10 + 1);
+                            dado.value = valorAleatorio
+                            break;
+                        case "D12":
+                            var valorAleatorio = Math.floor(Math.random() * 12 + 1);
+                            dado.value = valorAleatorio
+                        case "D20":
+                            var valorAleatorio = Math.floor(Math.random() * 20 + 1);
+                            if (valorAleatorio == 20) {
+                                swal({
+                                    title: "20!",
+                                    text: "CRÍTICO! VOCÊ DECAPTOU AQUELE DRAGÃO!",
+                                    icon: "success",
+                                    button: "Ok",
+                                });
+                                dado.value = valorAleatorio
+                            } else if (valorAleatorio == 1) {
+                                swal({
+                                    title: "1...",
+                                    text: "Err... Eu acho que você morreu!",
+                                    icon: "warning",
+                                    button: "Ok",
+                                });
+                                dado.value = valorAleatorio
+                            } else {
+                                dado.value = valorAleatorio
+                            }
+                            break;
+                        default:
+                            day = "Saturday";
+                            break;
+                    }
+
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
