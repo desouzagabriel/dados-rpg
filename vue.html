@@ -17,7 +17,7 @@
     <div class="loader"></div>
 
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-success bg-success">
             <img src="icons/dice-shield.svg" alt="Logo" height="50">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,13 +37,13 @@
 
                 <!-- DIV -->
                 <div class="col-lg-8 offset-lg-2 mt-5">
-                    <h2 class="text-center mb-5 bg-danger text-white p-3">
+                    <h1 class="text-center mb-5 p-3">
                         <img src="icons/rule-book.svg" alt="Livro de Regras" height="80" width="80">
                         ROLAGEM DE DADOS
-                    </h2>
+                    </h1>
                     <div class="row">
                         <div class="col-lg-4" v-for="dado in dados">
-                            <button class="btn btn-danger col-lg-4 offset-lg-4 mb-5" @click="rolagemD20(dado)">
+                            <button class="btn btn-success col-lg-4 offset-lg-4 mb-5" @click="rolagemD20(dado)">
                                 <img :src="dado.linkfoto" alt="Dados de RPG" height="50" width="50">
                                 <p>{{dado.nome}}</p>
                                 <p>{{dado.value}}</p>

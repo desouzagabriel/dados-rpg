@@ -1,3 +1,22 @@
+/* 
+#33691e
+#629749
+#003d00
+#ffffff
+
+
+*/
+
+/*Variaveis de cor*/
+:root {
+  --primary: #33691e;
+  --primary-dark: #003d00;
+  --primary-light: #629749;
+  --secondary: #ffffff;
+  --fonte: #ffffff;
+  --fonte-escura: #000000;
+}
+
 .loader {
   position: fixed;
   left: 0px;
@@ -7,4 +26,27 @@
   z-index: 9999;
   background: url("../img/loader.gif") 50% 50% no-repeat rgb(249, 249, 249);
   opacity: 1;
+}
+
+/* CORPO */
+.navbar-success,
+.bg-success {
+  background-color: var(--primary) !important;
+}
+.nav-item {
+  color: var(--fonte) !important;
+}
+.nav-item:hover {
+    color: var(--fonte) !important;
+  }
+h1 {
+  background-color: var(--primary);
+  color: var(--fonte);
+}
+.btn-success {
+  background-color: var(--primary) !important;
+}
+
+.btn-success:hover {
+  background-color: var(--primary-light) !important;
 }
