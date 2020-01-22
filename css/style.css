@@ -1,12 +1,3 @@
-/* 
-#33691e
-#629749
-#003d00
-#ffffff
-
-
-*/
-
 /*Variaveis de cor*/
 :root {
   --primary: #33691e;
@@ -17,6 +8,7 @@
   --fonte-escura: #000000;
 }
 
+/* LOADER */
 .loader {
   position: fixed;
   left: 0px;
@@ -24,29 +16,56 @@
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background: url("../img/loader.gif") 50% 50% no-repeat rgb(249, 249, 249);
+  background: url("../icons/loader.gif") 50% 50% no-repeat rgb(249, 249, 249);
   opacity: 1;
 }
 
-/* CORPO */
+* {
+  font-family: "Amarante", cursive;
+}
+
+/* NAVBAR */
 .navbar-success,
 .bg-success {
-  background-color: var(--primary) !important;
+  background-color: rgba(51, 105, 30, 0) !important;
+
 }
 .nav-item {
   color: var(--fonte) !important;
 }
 .nav-item:hover {
-    color: var(--fonte) !important;
-  }
-h1 {
-  background-color: var(--primary);
-  color: var(--fonte);
-}
-.btn-success {
-  background-color: var(--primary) !important;
+  color: var(--fonte) !important;
+  font-size: 1.2vw;
 }
 
-.btn-success:hover {
-  background-color: var(--primary-light) !important;
+/* DIV HOME */
+#div-home {
+  background-color: rgba(51, 105, 30, 0.3);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 45.75vw;
+}
+#div-home::after {
+  content: "";
+  background-image: url("../icons/dungeons-and-dragons.jpg");
+  opacity: 0.5;
+  top: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+#div-home h1 {
+  padding-top: 15vw;
+  font-size: 4.25vw;
+  color: var(--fonte);
+}
+#div-home p {
+  color: var(--fonte);
+}
+#div-home hr {
+  background-color: var(--fonte);
+  width: 20vw;
 }
